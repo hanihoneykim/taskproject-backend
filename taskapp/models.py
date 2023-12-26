@@ -16,3 +16,10 @@ class Task(models.Model):
     )
     due = models.DateTimeField(null=False)
     create_at = models.DateTimeField(auto_now_add=True, null=False)
+
+
+class ChecklistItem(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    content = models.CharField(max_length=100, null=False)
+    is_checked = models.BooleanField(null=False, default=False)
+    create_at = models.DateTimeField(auto_now_add=True, null=False)
