@@ -1,11 +1,11 @@
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _  # gettext_lazy는 보통 _ 로 많이 구현함
 
 
 class Task(models.Model):
     class TaskType(models.TextChoices):
-        JOB = "JOB", _("업무")
-        HEALTH = "HEALTH", _("건강")
+        JOB = "JOB", _("업무")  # 코드에서 불러올 값 = db에서 쓸 값, 사용자에게 보여질 값
+        HEALTH = "HEALTH", _("건강")  # gettext_lazy("건강") 과 동일한 값
         PERSONAL = "PERSONAL", _("개인")
 
     title = models.CharField(max_length=50, null=False)
