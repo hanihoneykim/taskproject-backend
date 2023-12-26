@@ -1,5 +1,6 @@
+from typing import Any
 from django.shortcuts import render
-from django.views import View
+from django.views.generic import TemplateView
 from .models import Task, ChecklistItem
 
 
@@ -8,16 +9,11 @@ def index(request):
     return render(request, "pages/index.html", context)
 
 
-class TaskListView(View):
+class TaskListView(TemplateView):
     template_name = "pages/task_list.html"
 
-    def get(self, request):
+    def get_context_data(self, **kwargs):
         tasks = Task.objects.all()
-        context = {
+        return {
             "tasks": tasks,
         }
-        return render(request, self.template_name, context)
-
-    def post(self, request):
-        context = {}
-        return render(request, self.template_name, context)
