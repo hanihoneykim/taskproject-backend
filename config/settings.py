@@ -42,6 +42,8 @@ DJANGO_APPS = [
 EXTERNAL_APPS = [
     "rest_framework",
     "corsheaders",
+    "crispy_forms",
+    "crispy_bootstrap4",
 ]
 
 INTERNAL_APPS = [
@@ -49,6 +51,8 @@ INTERNAL_APPS = [
 ]
 
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + INTERNAL_APPS
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
